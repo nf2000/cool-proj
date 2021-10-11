@@ -1,5 +1,8 @@
 <h2> this the home page </h2>
 
-<%= current_user.firstname %>
+<% if current_user %>
+
+    <%= current_user.firstname %>
+<% end %>
 
 
