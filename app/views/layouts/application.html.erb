@@ -15,7 +15,8 @@
   </head>
 
   <body>
-
+ <h3><%= link_to 'Logout',  logout_path, method: :delete %><h3>
+ 
   
     <% flash.each do |name, msg| %>
       <div class="alert alert-<%= name%>">
