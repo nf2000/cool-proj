@@ -1,8 +1,16 @@
+<div id="error_explanation">
+    <ul>
+        <% @user.errors.full_messages.each do |error| %>
+            <li> * <%= error %></li> 
+        <% end %>
+    </ul>
+</div>
+
 <div class = "container"
     <form>
         <%= form_with(model: @user, local: true) do |f| %>
     
-            <div class="col-sm-3">
+            <div class="col-sm-3 ">
                 <%= f.label :Firstname , class: "form-label" %><br/>
                 <%= f.text_field :firstname, class: "form-control" %>
             </div>
@@ -20,7 +28,10 @@
                 <%= f.label :password %><br/>
                 <%= f.password_field :password, class: "form-control" %>
             </div>
-            
+            <div class="col-sm-3"
+                <%= f.label :password %><br/>
+                <%= password_field :user, :password_confirmation, class: "form-control" %>
+            </div>
             <div class="col-sm-3">
                 <%= f.submit %>
             </div>
