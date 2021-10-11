@@ -21,8 +21,10 @@
   </head>
 
   <body>
-  
- <h4><%= link_to 'Logout',  logout_path, method: :delete %><h4>
+
+    <% if current_user %>
+      <h4><%= link_to 'Logout',  logout_path, method: :delete %><h4>
+    <% end %>
  
   
     <% flash.each do |name, msg| %>
