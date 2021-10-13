@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar{
+    background-color: #e3f2fd;
+    color: black;
+}
+
+#current-user{
+
+    float: right;
+    position: relative;
+    right: 10%;
+
+
+}
