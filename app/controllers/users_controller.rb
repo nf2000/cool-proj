@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             return redirect_to root_path
 
         else
-          flash.now[:danger] = "Could not sign up"
+          flash.now[:danger] = @user.errors.full_messages #"Could not sign up"
           render 'new'
 
 
