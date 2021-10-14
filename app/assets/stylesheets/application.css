@@ -12,9 +12,13 @@
  *
  *= require_tree .
  *= require_self
+  *= require bootstrap-datepicker
+
  */
 
- *= require bootstrap-datepicker3
+ @import "bootstrap";
+
+
  
 .navbar{
     background-color: #e3f2fd;
