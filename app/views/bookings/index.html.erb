@@ -1,0 +1,14 @@
+
+<div class="card w-75">
+<% @bookings.each do |room| %>
+  <div class="card-body">
+    <h5 class="card-title"><%= room.name %> </h5>
+    <a href="#" class="btn btn-primary">Book Room</a>
+
+  </div>
+
+  <%end%>
+
+</div>
+
+
