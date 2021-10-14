@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
  gem 'bootstrap-datepicker-rails'
+ gem 'jquery-ui-rails', '~> 4.2.1'
+ gem 'jquery-rails'
+
+
 
 
 # Use Active Storage variant
