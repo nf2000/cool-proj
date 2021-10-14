@@ -11,3 +11,15 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-datepicker
+
+
+console.log("hello")
+
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+});
