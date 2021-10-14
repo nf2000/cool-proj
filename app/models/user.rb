@@ -8,9 +8,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: { message: " already has an account with it" }
     validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
-
-
-
-
     has_secure_password
+
+    has_many :bookings
 end
