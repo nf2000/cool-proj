@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-d1 =  Date.new(2021, 10, 22)
-d2 =  Date.new(2021, 10, 24)
+d1 =  Date.new(2021,10,20)
+d2 =  Date.new(2021,10,24)
 
 u1 = User.create!(firstname: "Nimra", surname: "Fatima", email: "fatima@email.com", password: "Password", password_confirmation: "Password")
 
