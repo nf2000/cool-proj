@@ -4,11 +4,12 @@
   <div class="card-body">
     <h5 class="card-title"><%= room.name %> </h5>
     <p class="card-text"> Room capacity: <%= room.capacity %></p>
-    <a href="#" class="btn btn-primary">Book Room</a>
-
+     <%= link_to "View Room ", room_path(room) %></td>
   </div>
 
-  <%end%>
+<%end%>
+
+
 
 </div>
 
