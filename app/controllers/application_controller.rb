@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    add_flash_types :info, :danger, :warning, :success
+    add_flash_types  :success
     
     helper_method :current_user, :logged_in?
 
