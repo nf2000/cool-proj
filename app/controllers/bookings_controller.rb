@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-    before_action :find_user
+    before_action :find_user, :find_room
 
 
     def index
@@ -10,16 +10,25 @@ class BookingsController < ApplicationController
         @booking = Booking.new
     end 
 
+    def show 
+        @user = User.find(session[:user_id])
+        @booking = @user.bookings
+        @bookings = Booking.find(params[:id])
+
+    end
+
+
     def create 
         @booking = Booking.new(booking_param) 
         @booking.user_id = session[:user_id]
-        #@booking.room_id = @room.id
+        @booking.room_id = @room.id
         # actual_date_format = "02/24/2017"
         #date_goal = actual_date_format.split('/').reverse.join('-')
         if @booking.save
-            return redirect_to bookings_path
-
+            flash.now[:success] = "booking created"
+            return redirect_to room_booking_path("#{@booking.user_id}")
         else
+            flash.now[:danger] = "Can't create booking"
             render 'new'
         end
         
@@ -27,7 +36,7 @@ class BookingsController < ApplicationController
 
     private
     def booking_param
-        params.require(:booking).permit(:user_id,:guests,:check_in,:check_out)
+        params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
 
     end
     
