@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
     def show 
         @user = User.find(session[:user_id])
         @booking = @user.bookings
+        @room = Room.find(session[:user_id])
+        @room_book = @room.bookings
         @bookings = Booking.find(params[:id])
 
     end
@@ -26,7 +28,7 @@ class BookingsController < ApplicationController
         #date_goal = actual_date_format.split('/').reverse.join('-')
         if @booking.save
             flash.now[:success] = "booking created"
-            return redirect_to room_booking_path("#{@booking.user_id}")
+            return redirect_to room_booking_path("#{@booking.room_id}","#{@booking.id}")
         else
             flash.now[:danger] = "Can't create booking"
             render 'new'
