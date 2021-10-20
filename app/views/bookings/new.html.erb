@@ -3,14 +3,9 @@
 
 </div>
 
-    Check-out: <input type="text"  class='datepicker'>
-    Check-In: <input type="text"  class='datepicker'> 
-
-
-
 <div class="create">
 <div class="container">
-  <%= form_with model: @booking do |form| %> 
+  <%= form_with model: [@room, @booking] do |form| %> 
     <div class="row g-2">
       <div class="col-md-6"
         <div class="mb-3">
@@ -20,9 +15,6 @@
           <%= form.text_field :check_in, class: "datepicker", rows: "6" %> <br> 
           <%= form.label :check_out %>
           <%= form.text_field :check_out, class: "datepicker", rows: "6" %> <br> 
-          <%= form.label :room_id %>
-          <%= form.text_field :room_id, rows: "6" %> <br> 
-        
         </div>
       </div> 
       <div class= "col-sm-9 ms-auto text-center" ">
