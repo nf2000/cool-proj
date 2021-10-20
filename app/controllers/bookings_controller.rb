@@ -12,9 +12,7 @@ class BookingsController < ApplicationController
 
     def show 
         @user = User.find(session[:user_id])
-        @booking = @user.bookings
-        @room = Room.find(session[:user_id])
-        @room_book = @room.bookings
+        @room = Room.find(params[:room_id])
         @bookings = Booking.find(params[:id])
 
     end
