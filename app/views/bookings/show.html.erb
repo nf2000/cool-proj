@@ -2,16 +2,13 @@
   
     <div class="card-body">
      
-      <%= params.inspect %>
+        <%=@bookings.id%>
+        <%=@room.name%>
 
-      <% @user.bookings.each do |b| %>
-        <%= b.id %>
-    
-      <% end %>
-      <%=@user.firstname%>
+
+        <%=@user.firstname%>
     </div>
 
-   <%= @bookings.check_in %>
    
     
 
