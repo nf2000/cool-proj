@@ -22,4 +22,6 @@ console.log("hello")
 
 $(document).ready(function(){
     $('.datepicker').datepicker({ dateFormat: 'dd/mm/yy',minDate: 0});
+    $(".datepicker").attr("autocomplete", "off");
+
 });
