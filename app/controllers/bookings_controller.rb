@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
             flash.now[:success] = "booking created"
             return redirect_to room_booking_path("#{@booking.room_id}","#{@booking.id}")
         else
-            flash.now[:danger] = "Can't create booking"
+            flash.now[:danger] =  @booking.errors.full_messages #"Can't create booking"
             render 'new'
         end
         
