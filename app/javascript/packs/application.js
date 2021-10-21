@@ -21,7 +21,6 @@ ActiveStorage.start()
 console.log("hello")
 
 $(document).ready(function(){
-    $('.datepicker').datepicker({ dateFormat: 'dd/mm/yy',minDate: 0});
-    $(".datepicker").attr("autocomplete", "off");
+    $('.datepicker').datepicker({ dateFormat: 'dd/mm/yy',minDate: 0}).attr("autocomplete", "off");
 
 });
