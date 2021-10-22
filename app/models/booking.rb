@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
     validates :guests,:check_in,:check_out, presence: true
     validate :out_date_after_in_date
     validates :check_in, :check_out, overlap: {:scope => "room_id", :message_title => "Availablity:", :message_content => "Room is not available"}
-
+    
     def out_date_after_in_date
         return if check_in.blank? || check_out.blank?
         if check_out < check_in
