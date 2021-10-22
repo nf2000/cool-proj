@@ -4,9 +4,10 @@ class Booking < ApplicationRecord
 
     validates :guests,:check_in,:check_out, presence: true
     validate :out_date_after_in_date
-    validates_uniqueness_of :room_id, scope: [:check_in]
-    validates_uniqueness_of :room_id, scope: [:check_out]
 
+    duration = [:check_in..:check_out]
+    validates_uniqueness_of :room_id, scope: (duration)
+    #validates_uniqueness_of :room_id, scope: [:check_out]
 
     def out_date_after_in_date
         return if check_in.blank? || check_out.blank?
