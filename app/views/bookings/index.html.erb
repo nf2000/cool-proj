@@ -1,10 +1,8 @@
-
 <div class="card w-75">
   <% @bookings.each do |booking| %>
     <div class="card-body">
       <h5 class="card-title"><%= booking.check_out.to_date.strftime("%d/%m/%y") %> </h5>
       <h5 class="card-title"><%= booking.user_id %> </h5>
-
     </div>
   <%end%>
 </div>
