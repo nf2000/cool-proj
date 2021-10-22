@@ -24,9 +24,7 @@ gem 'jbuilder', '~> 2.7'
  gem 'bootstrap-datepicker-rails'
  gem 'jquery-ui-rails', '~> 4.2.1'
  gem 'jquery-rails'
-
-
-
+ gem 'validates_overlap'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
