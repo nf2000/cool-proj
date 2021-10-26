@@ -22,8 +22,6 @@ class BookingsController < ApplicationController
         @booking = Booking.new(booking_param) 
         @booking.user_id = session[:user_id]
         @booking.room_id = @room.id
-        # actual_date_format = "02/24/2017"
-        #date_goal = actual_date_format.split('/').reverse.join('-')
         if @booking.save
             flash.now[:success] = "booking created"
             return redirect_to room_booking_path("#{@booking.room_id}","#{@booking.id}")
@@ -31,6 +29,7 @@ class BookingsController < ApplicationController
             flash.now[:danger] =  @booking.errors.full_messages #"Can't create booking"
             render 'new'
         end
+        
         
     end
 

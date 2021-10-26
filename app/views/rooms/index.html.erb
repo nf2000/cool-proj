@@ -1,16 +1,11 @@
 
-<div class="card w-75">
-<% @rooms.each do |room| %>
-  <div class="card-body">
-    <h5 class="card-title"><%= room.name %> </h5>
-    <p class="card-text"> Room capacity: <%= room.capacity %></p>
-     <%= link_to "View Room ", room_path(room) %></td>
-  </div>
 
-<%end%>
+    <p><%= @roomsAvailable.inspect %></p> 
 
 
+<% @roomsAvailable.each do |p| %>     
+    <p><%= p.name %></p>  
+    <%= link_to "View Room ", room_path(p) %>
+<% end %>  
 
-</div>
-
-
+ 
