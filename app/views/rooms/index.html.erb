@@ -1,11 +1,11 @@
-
-
-    <p><%= @roomsAvailable.inspect %></p> 
-
-
 <% @roomsAvailable.each do |p| %>     
     <p><%= p.name %></p>  
     <%= link_to "View Room ", room_path(p) %>
 <% end %>  
 
+
+<%= @bookings.inspect%>
+
  
+
+

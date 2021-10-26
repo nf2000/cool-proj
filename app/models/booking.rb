@@ -12,5 +12,10 @@ class Booking < ApplicationRecord
           errors.add(:check_out, "must be after the check In date")
         end
      end
+
+     def room_available?
+      Reservation.where(:room_id => @room.id, :arrival => @arrival, :departure => @departure).exists?
+    end
+  
 end
                                                                                                                                                                                                             
