@@ -2,19 +2,9 @@ class RoomsController < ApplicationController
 
     def index
         @rooms = Room.all
-        #@bookings = Booking.all
-        # @rooms = Booking.where.not("check_in <= ? AND check_out >= ?", check_out, check_in)
-        @bookings = Booking.where.not("check_in = ? OR check_out = ?", :check_out, :check_in)
-        #@booking = Booking.find(params[:check_in, :check_out])
-        @roomsTakenIds = Room.includes(:bookings).where("bookings.check_in = ? AND bookings.check_out = ?", :check_in, :check_out).references(:booking)
-        #@roomsTakenIds = Booking.where.not("check_in = ? ", :check_in).pluck(:room_id)   
-        @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}
-       
-       #@roomsAvailable = Room.joins(' FULL OUTER JOIN "bookings" ON "rooms"."id" = "bookings"."id" ').where.not("bookings.check_in <= ? AND bookings.check_out >= ?", :check_out, :check_in)
-        Rails.logger.warn("***********")
-        Rails.logger.warn(@roomsAvailable.inspect)
-        Rails.logger.warn("***********")
-        
+        @bookings = Booking.all
+        @roomsTakenIds = Room.includes(:bookings).where( "bookings.check_in = ? AND bookings.check_out = ?", params[:check_in], params[:check_out] ).pluck(:id)
+        @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
     end
 
     def new 
