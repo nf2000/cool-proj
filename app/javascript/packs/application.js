@@ -16,7 +16,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 $(document).ready(function(){
-    $('.datepicker').datepicker({ dateFormat: 'yy-mm-dd',minDate: 0}).attr("autocomplete", "off");
+    $('.datepicker').datepicker({ dateFormat: 'yy-mm-dd',minDate: 0}).attr("autocomplete", "off").attr('readOnly', 'true');
 
 });
 
