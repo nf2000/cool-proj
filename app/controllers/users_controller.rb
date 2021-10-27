@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
-        #@current_user = User.find_by_id(session[:current_user_id])
     end
+
     def new
         @user = User.new
     end
@@ -18,15 +18,11 @@ class UsersController < ApplicationController
         else
           flash.now[:danger] = @user.errors.full_messages #"Could not sign up"
           render 'new'
-
-
         end
     end
-      
+
     private
-      
       def user_params
         params.require(:user).permit(:firstname, :surname, :email, :password, :password_confirmation)
-      end
-    
+    end
 end
