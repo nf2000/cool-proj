@@ -4,14 +4,7 @@ class RoomsController < ApplicationController
         @rooms = Room.all
         @bookings = Booking.all
         @roomsTakenIds = Room.includes(:bookings).where( "bookings.check_in <= ? AND bookings.check_out >= ?",params[:check_in], params[:check_out] ).pluck(:room_id)
-        @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}
-
-
-        Rails.logger.warn("******")
-        Rails.logger.warn(params[:check_in]..params[:check_out])
-        Rails.logger.warn("******")
-
-
+        @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
     end
 
     def new 
@@ -35,6 +28,4 @@ class RoomsController < ApplicationController
     def booking_param
         params.permit(:check_in, :check_out)
     end
-
-
 end
