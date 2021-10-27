@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
     before_action :find_user, :find_room
-
-
+    
     def index
         @bookings = Booking.all
     end
@@ -14,9 +13,7 @@ class BookingsController < ApplicationController
         @user = User.find(session[:user_id])
         @room = Room.find(params[:room_id])
         @bookings = Booking.find(params[:id])
-
     end
-
 
     def create 
         @booking = Booking.new(booking_param) 
@@ -29,14 +26,11 @@ class BookingsController < ApplicationController
             flash.now[:danger] =  @booking.errors.full_messages #"Can't create booking"
             render 'new'
         end
-        
-        
     end
 
     private
     def booking_param
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
-
     end
     
     private 
