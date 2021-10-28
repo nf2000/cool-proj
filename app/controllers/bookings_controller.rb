@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
     before_action :find_user, :find_room
-    
+
     def index
-        @bookings = Booking.all
+        @user = User.find(session[:user_id])
+        @booking = @user.bookings
     end
 
     def new 
@@ -11,8 +12,8 @@ class BookingsController < ApplicationController
 
     def show 
         @user = User.find(session[:user_id])
-        @room = Room.find(params[:room_id])
         @bookings = Booking.find(params[:id])
+        @room = @bookings.room
     end
 
     def create 
@@ -25,6 +26,17 @@ class BookingsController < ApplicationController
         else
             flash.now[:danger] =  @booking.errors.full_messages #"Can't create booking"
             render 'new'
+        end
+    end
+
+    def destroy
+        @booking = Booking.find(params[:id])
+        if @booking.destroy
+            flash[:success] =  "'#{@booking.id}' successfully deleted."  
+            redirect_to root_path 
+        else
+            flash.now[:danger] = "could not delete blog post"
+            render 'show'
         end
     end
 
