@@ -1,9 +1,13 @@
 <div class="container">
     <p> Thank you for booking with us! :) </p>
 
-    <%=@bookings.id%>
+
+    <%=@booking%>
     <%=@user.firstname%>
     <%=@room.name%>
+    <a class="dropdown-item"><%= link_to"Delete", room_booking_path("#{params[:room_id]}","#{params[:id]}"), method: :delete, data:{confirm: 'Are you sure you wish to delete this booking?'}, class: 'btn btn-dark btn-sm ' %></a>
+
+
 </div>
    
     
