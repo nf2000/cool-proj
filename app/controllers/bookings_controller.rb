@@ -40,6 +40,21 @@ class BookingsController < ApplicationController
         end
     end
 
+    def edit
+        @booking = Booking.find(params[:id])
+    end
+    
+    def update
+        @booking = Booking.find(params[:id])
+
+        if @booking.update(booking_param)
+            flash[:success] =  "'#{@booking.id}' successfully updated."  
+            redirect_to root_path
+        else
+            flash.now[:danger] = "unable to update booking"
+            render 'edit'
+        end
+    end
     private
     def booking_param
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
