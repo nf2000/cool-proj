@@ -1,10 +1,13 @@
 <div class="card w-75">
-  <% @bookings.each do |booking| %>
-    <div class="card-body">
-      <h5 class="card-title"><%= booking.check_out.to_date.strftime("%d/%m/%y") %> </h5>
-      <h5 class="card-title"><%= booking.user_id %> </h5>
-    </div>
-  <%end%>
+    <% @booking.each do |booking| %>
+      <div class="card-body">
+        <h5 class="card-title">Booking id: <%= booking.id %> </h5>
+        <h5 class="card-title">Check in: <%= booking.check_in.to_date.strftime("%d/%m/%y") %> </h5>
+        <h5 class="card-title">Check out: <%= booking.check_out.to_date.strftime("%d/%m/%y") %> </h5>
+        <h5 class="card-title"><%= booking.room.name %> </h5>
+        <h5 class="card-title"><%= booking.user.firstname %> </h5>
+      <a><%= link_to"View Booking",room_booking_path(booking.room_id, booking.id), class: 'btn btn-dark btn-sm ' %></a>
+      </div>
+    <%end%>
 </div>
-
 
