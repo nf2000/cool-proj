@@ -3,9 +3,9 @@ class RoomsController < ApplicationController
     def index
         @rooms = Room.all
         @bookings = Booking.all
-        if params[:check_in].blank? || params[:check_out].blank?
+        if params[:check_in] > params[:check_out]
             redirect_to root_path 
-            flash[:error] = "checkin Can't be empty"
+            flash[:error] = "checkin can't be later than checkout date"
         else
             @roomsTakenIds = Room.includes(:bookings).where( "bookings.check_in <= ? AND bookings.check_out >= ?",params[:check_in], params[:check_out] ).pluck(:room_id)
             @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
