@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :sessions, :users, :homes
-
   resources :rooms do
-    resources :bookings #nested resources 
+    resources :bookings
   end
   
   root "homes#index"
 
   get "signup", to: "users#new"
   get "login", to: "sessions#new"
+  #get "bookings", to: "bookings#index"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
-  #get "/rooms/:id/bookings", to: 'bookings#index', as: 'bookings'
 end
