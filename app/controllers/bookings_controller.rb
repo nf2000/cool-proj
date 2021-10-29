@@ -5,10 +5,10 @@ class BookingsController < ApplicationController
         @user = User.find(session[:user_id])
         @booking = @user.bookings
         @sorted = @booking.order(:room_id)
-
     end
 
     def new 
+        @room = Room.find(params[:room_id])
         @booking = Booking.new
     end 
 
@@ -57,6 +57,7 @@ class BookingsController < ApplicationController
             render 'edit'
         end
     end
+
     private
     def booking_param
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
@@ -69,6 +70,9 @@ class BookingsController < ApplicationController
 
     private 
     def find_room
-        @room = Room.find(params[:room_id])
+        if !params[:room_id].nil?
+            @room = Room.find(params[:room_id])
+        end
+
     end
 end
