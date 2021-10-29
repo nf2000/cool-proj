@@ -4,20 +4,20 @@
     <p class="lead ">
         "Travel Good with Nims Inn"
     </p>
-<%= form_with url: "/rooms", method: :get do |form| %> 
-  <div class="row g-2">
-    <div class="col-md-6"
-      <div class="mb-3">
-        <%= form.label :check_in %>
-        <%= form.text_field :check_in, class: "datepicker", rows: "6" %> <br> 
-        <%= form.label :check_out %>
-        <%= form.text_field :check_out, class: "datepicker", rows: "6" %> <br> 
+  <%= form_with url: "/rooms", method: :get do |form| %> 
+    <div class="row g-2">
+      <div class="col-md-6"
+        <div class="mb-3">
+          <%= form.label :check_in %>
+          <%= form.text_field :check_in, class: "datepicker", rows: "6" %> <br> 
+          <%= form.label :check_out %>
+          <%= form.text_field :check_out, class: "datepicker", rows: "6" %> <br> 
+        </div>
+      </div> 
+      <div class= "col-sm-9 ms-auto text-center" ">
+        <%= form.submit "Search", class: " btn btn-secondary btn-sm" %>
       </div>
-    </div> 
-    <div class= "col-sm-9 ms-auto text-center" ">
-      <%= form.submit "Search", class: " btn btn-secondary btn-sm" %>
     </div>
-  </div>
 <% end %> 
 
 
