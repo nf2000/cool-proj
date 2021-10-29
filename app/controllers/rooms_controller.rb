@@ -3,8 +3,13 @@ class RoomsController < ApplicationController
     def index
         @rooms = Room.all
         @bookings = Booking.all
-        @roomsTakenIds = Room.includes(:bookings).where( "bookings.check_in <= ? AND bookings.check_out >= ?",params[:check_in], params[:check_out] ).pluck(:room_id)
-        @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
+        if params[:check_in].blank? || params[:check_out].blank?
+            redirect_to root_path 
+            flash[:error] = "checkin Can't be empty"
+        else
+            @roomsTakenIds = Room.includes(:bookings).where( "bookings.check_in <= ? AND bookings.check_out >= ?",params[:check_in], params[:check_out] ).pluck(:room_id)
+            @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
+        end
     end
 
     def new 
