@@ -4,6 +4,8 @@ class BookingsController < ApplicationController
     def index
         @user = User.find(session[:user_id])
         @booking = @user.bookings
+        @sorted = @booking.order(:room_id)
+
     end
 
     def new 
