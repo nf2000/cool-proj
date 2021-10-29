@@ -1,7 +1,5 @@
 <div class="container">
     <p> Booking Details </p>
-
-
     <%=@booking%>
     <%=@user.firstname%> 
     <%=@room.name%>
@@ -10,8 +8,6 @@
     <h5 class="card-title">Check out: <%= @bookings.check_out.to_date.strftime("%d/%m/%y") %> </h5>
     <a class="dropdown-item"><%= link_to"Delete", room_booking_path("#{params[:room_id]}","#{params[:id]}"), method: :delete, data:{confirm: 'Are you sure you wish to delete this booking?'}, class: 'btn btn-dark btn-sm ' %></a>
     <a class="dropdown-item"><%= link_to "Edit", edit_room_booking_path("#{params[:room_id]}","#{params[:id]}"), class: 'btn btn-dark btn-sm '%></a>
-
-
 </div>
    
     
