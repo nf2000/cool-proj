@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
 
     validates :guests,:check_in,:check_out, presence: true
     validate :out_date_after_in_date
+    validate :capacity
     validates :check_in, :check_out, overlap: {:scope => "room_id", :message_title => "Availablity:", :message_content => "Room is not available"}
     
     def out_date_after_in_date
@@ -12,5 +13,12 @@ class Booking < ApplicationRecord
           errors.add(:check_out, "must be after the check In date")
         end
      end
+
+     def capacity
+      if guests > room.capacity
+        errors.add(:guests, "number must not exceed the capacity of the room")
+      end
+    end
+
 end
                                                                                                                                                                                                             
