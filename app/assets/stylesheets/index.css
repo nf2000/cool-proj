@@ -12,3 +12,21 @@
     font-size: 50px;
     
 }
+.col-md-4{
+    position: relative;
+    left: 280px;
+    padding-right: 120px;
+    font-family: system-ui;
+    font-size: 18px;
+}
+
+.btn{
+    position: relative;
+    top: 5px;
+    left: 40px;
+}
+
+.nav{
+    position: absolute;
+    top: 50px;
+}
