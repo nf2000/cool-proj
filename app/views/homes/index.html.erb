@@ -1,24 +1,30 @@
-<%= image_tag "night.jpeg", class: "homepage-pic" %>  
-
-<div class = "container">
-    <p class="lead ">
-        "Travel Good with Nims Inn"
-    </p>
-  <%= form_with url: "/rooms", method: :get do |form| %> 
-    <div class="row g-2">
-      <div class="col-md-6"
-        <div class="mb-3">
-          <%= form.label :check_in %>
-          <%= form.text_field :check_in, class: "datepicker", rows: "6" %> <br> 
-          <%= form.label :check_out %>
-          <%= form.text_field :check_out, class: "datepicker", rows: "6" %> <br> 
+<div class="title">
+  <%= image_tag "night.jpeg", class: "homepage-pic"%>  
+  <p class="lead "> "Travel Good with Nims Inn"</p>
+</div>
+<%=form_with url: "/rooms", method: :get do |form|%> 
+  <nav class="navbar navbar-expand-lg navbar style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <span class="navbar-brand" >
+        <div class="row g-2">
+          <div class="col-md-4 "
+            <%= form.label :check_in%> :
+            <%= form.text_field :check_in, class: "datepicker", rows: "6"%> <br> 
+          </div>
+          <div class="col-md-4"
+            <%= form.label :check_out%> :
+            <%= form.text_field :check_out, class: "datepicker", rows: "6"%> <br> 
+          </div>
+          <div class="col-md-4">
+              <%= form.submit "Search", class:" btn btn-dark btn-sm"%>
+          </div>
         </div>
-      </div> 
-      <div class= "col-sm-9 ms-auto text-center" ">
-        <%= form.submit "Search", class: " btn btn-secondary btn-sm" %>
-      </div>
+      </span>
     </div>
-<% end %> 
+  </nav>
+<%end%> 
+
+
 
 
 
