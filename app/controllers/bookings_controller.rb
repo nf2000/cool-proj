@@ -62,7 +62,7 @@ class BookingsController < ApplicationController
     def booking_param
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
     end
-    
+
     private 
     def find_user
         @user = session[:user_id]
