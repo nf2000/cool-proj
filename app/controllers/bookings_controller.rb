@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
         @user = User.find(session[:user_id])
         @bookings = Booking.find(params[:id])
         @room = @bookings.room
+        @no_of_days = (@bookings.check_out - @bookings.check_in).to_i
     end
 
     def create 
