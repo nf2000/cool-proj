@@ -7,7 +7,7 @@
                     <h5 class="card-title"><%= p.name %></h5>
                     <p class="card-text"><%="Capacity: #{p.capacity}"%></p>
                     <p class="card-text"><%= "Cost per Night: £#{p.cost}"%></p>
-                    <%= link_to "View Room ", room_path(p), class: "btn btn-dark"%>
+                    <%= link_to "View Room ", new_room_booking_path(p), class: "btn btn-dark"%>
                 </div>
             </div>
             <br>
