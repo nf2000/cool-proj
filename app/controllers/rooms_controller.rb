@@ -16,10 +16,6 @@ class RoomsController < ApplicationController
         @room = Room.new
     end 
 
-    def show 
-        @room = Room.find(params[:id])
-    end 
-
     def create 
         @room = Room.new(room_param) 
         redirect_to new_rooms_booking_path()
