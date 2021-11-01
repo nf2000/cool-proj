@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
             flash.now[:success] = "booking created"
             return redirect_to room_booking_path("#{@booking.room_id}","#{@booking.id}")
         else
-            flash.now[:danger] =  @booking.errors.full_messages #"Can't create booking"
+            flash.now[:danger] =  @booking.errors.full_messages
             render 'new'
         end
     end
@@ -57,7 +57,7 @@ class BookingsController < ApplicationController
             flash[:success] =  "'#{@booking.id}' successfully updated."  
             redirect_to root_path
         else
-            flash.now[:danger] = "unable to update booking"
+            flash.now[:danger] = @booking.errors.full_messages
             render 'edit'
         end
     end
