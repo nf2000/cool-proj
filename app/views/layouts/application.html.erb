@@ -33,7 +33,9 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a <%= link_to 'Booking',bookings_path, class: 'nav-link active'  %></a>
+              <% if current_user %>
+                <a <%= link_to 'Booking',bookings_path, class: 'nav-link active'  %></a>
+              <%end%>
             </li>
             <li class="nav-item">
               <a <%= link_to 'Rooms',rooms_path, class: 'nav-link active'  %></a>
@@ -51,7 +53,6 @@
         </div>
       </div>
     </nav>
-
     <% flash.each do |name, msg| %>
       <div class="alert alert-<%=name%>">
         <%=msg%>
