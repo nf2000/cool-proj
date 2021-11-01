@@ -1,5 +1,14 @@
-<h2 class="display-3"><%= @room.name %> </h2> <br>
+<div class="room-info">
+    <h2 class="title display-3"><%= @room.name %> </h2> <br>
+    <%=@room.capacity%>
+    <div class="text-justify text-wrap" style="width: 42rem;">
+        <p> Chase ball of string eat plants, meow, and throw up because I ate plants going to catch the red dot today going to catch the red dot today. I could pee on this if I had the energy. Chew iPad power cord steal the warm chair right after you get up for purr for no reason leave hair everywhere, decide to want nothing to do with my owner today.</p>
+    </div>
+</div>
 
-<%=@room.capacity%>
+<%= image_tag "room3.jpeg", class: "room-pic" %>  
+<div class= "booking">
+    <%= render "form", post: @booking %>
+</div>
 
-<%= render "form", post: @booking %>
+
