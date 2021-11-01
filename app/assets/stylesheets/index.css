@@ -38,5 +38,17 @@
 #index-room{
     position: relative;
     left: 5px;
-   
+}
+
+.table{
+    margin: 20px;
+}
+
+#view-btn{
+    position: relative;
+    left: 2px;
+}
+#delete-btn, #edit-btn{
+    position: relative;
+    left:5px;
 }

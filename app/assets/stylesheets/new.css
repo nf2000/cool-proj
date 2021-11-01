@@ -36,3 +36,11 @@ h3 {
     top:20px;
     
 }
+.edit-booking{
+    position: relative;
+    left:400px;
+    top: 70px;
+}
+.title{
+    margin: 30px;
+}
