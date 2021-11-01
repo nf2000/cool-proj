@@ -31,3 +31,12 @@
     top: 50px;
 }
 
+.card-body{
+    text-align: center;
+}
+
+#index-room{
+    position: relative;
+    left: 5px;
+   
+}
