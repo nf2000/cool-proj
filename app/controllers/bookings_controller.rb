@@ -17,6 +17,9 @@ class BookingsController < ApplicationController
         @bookings = Booking.find(params[:id])
         @room = @bookings.room
         @no_of_days = (@bookings.check_out - @bookings.check_in).to_i
+        if @no_of_days == 0
+            @no_of_days = 1
+        end
     end
 
     def create 
