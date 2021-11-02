@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
         <h5 class="card-title"><%="Room: #{@room.name}"%></h5>
-        <p class="card-text"><%="Customer name: #{@user.firstname} #{@user.surname}"%></p>
+        <p class="card-text"><%="Customer name: #{current_user.firstname} #{current_user.surname}"%></p>
         <p class="card-text"><%="#{@room.bed_no} #{@room.bed_type} Beds"%></p>
         <p class="card-text"><%="Number of guests: #{@bookings.guests}"%></p>
         <p class="card-text"><%="Check in: #{@bookings.check_in.to_date.strftime("%d/%m/%y")}"%></p>
