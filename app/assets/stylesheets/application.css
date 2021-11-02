@@ -12,4 +12,23 @@
  *
  *= require_tree .
  *= require_self
+  *= require bootstrap-datepicker
+
  */
+
+ @import "bootstrap";
+
+
+ 
+.navbar{
+    background-color: #e3f2fd;
+    color: black;
+}
+
+#current-user{
+
+    float: right;
+    position: relative;
+    right: 10%;
+}
+

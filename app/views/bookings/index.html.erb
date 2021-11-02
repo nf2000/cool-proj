@@ -1,0 +1,25 @@
+<div class="title text-center">
+    <h1 class="display-4"> Customer Bookings </h1>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Booking ID</th>
+      <th scope="col">Room Name</th>
+      <th scope="col">Check In</th>
+      <th scope="col">Check Out</th>
+      <th scope="col">View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sorted.each do |booking| %>
+      <tr>
+        <th scope="row">Booking id: <%= booking.id %></th>
+        <td><%= booking.room.name %></td>
+        <td><%= booking.check_in.to_date.strftime("%d/%m/%y") %></td>
+        <td><%= booking.check_out.to_date.strftime("%d/%m/%y") %></td>
+        <td><%= link_to"View Booking",room_booking_path(booking.room_id, booking.id), class: 'btn btn-dark btn-sm ', id: 'view-btn' %></td> 
+      </tr>
+    <%end%>
+  </tbody>
+</table>

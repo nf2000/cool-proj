@@ -1,0 +1,54 @@
+.homepage-pic{ 
+    width: 1450px;
+    height: 400px;
+}
+
+.lead{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: whitesmoke;
+    font-size: 50px;
+    
+}
+.col-md-4{
+    position: relative;
+    left: 280px;
+    padding-right: 120px;
+    font-family: system-ui;
+    font-size: 18px;
+}
+
+.btn{
+    position: relative;
+    top: 5px;
+    left: 40px;
+}
+
+.nav{
+    position: absolute;
+    top: 50px;
+}
+
+.card-body{
+    text-align: center;
+}
+
+#index-room{
+    position: relative;
+    left: 5px;
+}
+
+.table{
+    margin: 20px;
+}
+
+#view-btn{
+    position: relative;
+    left: 2px;
+}
+#delete-btn, #edit-btn{
+    position: relative;
+    left:5px;
+}
