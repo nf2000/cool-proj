@@ -11,16 +11,7 @@ class RoomsController < ApplicationController
             @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
         end
     end
-
-    def new 
-        @room = Room.new
-    end 
-
-    def create 
-        @room = Room.new(room_param) 
-        redirect_to new_rooms_booking_path()
-    end
-
+    
     private
     def room_param
         params.require(:room).permit(:room_id)
