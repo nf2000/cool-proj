@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
         @booking.room_id = @room.id
         if @booking.save
             flash.now[:success] = "booking created"
-            return redirect_to room_booking_path("#{@booking.room_id}","#{@booking.id}")
+            redirect_to room_booking_path(@booking.room_id, @booking.id)
         else
             flash.now[:danger] =  @booking.errors.full_messages
             render 'new'
