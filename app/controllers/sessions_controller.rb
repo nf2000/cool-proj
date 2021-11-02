@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
     def edit 
         if logged_in?
-            return redirect_to logout_path
+            redirect_to logout_path
           else
             render  redirect_to login_path
         end
