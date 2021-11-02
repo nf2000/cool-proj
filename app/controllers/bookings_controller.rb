@@ -1,19 +1,16 @@
-class BookingsController < ApplicationController
-    before_action :find_user, :find_room
+class BookingsController < ApplicationController 
+    before_action :find_room
 
     def index
-        @user = User.find(session[:user_id])
-        @booking = @user.bookings
+        @booking = current_user.bookings
         @sorted = @booking.order(:room_id)
     end
 
     def new 
-        @room = Room.find(params[:room_id])
         @booking = Booking.new
     end 
 
     def show 
-        @user = User.find(session[:user_id])
         @bookings = Booking.find(params[:id])
         @room = @bookings.room
         @no_of_days = (@bookings.check_out - @bookings.check_in).to_i
@@ -24,7 +21,7 @@ class BookingsController < ApplicationController
 
     def create 
         @booking = Booking.new(booking_param) 
-        @booking.user_id = session[:user_id]
+        @booking.user_id = current_user.id
         @booking.room_id = @room.id
         if @booking.save
             flash.now[:success] = "booking created"
@@ -65,11 +62,6 @@ class BookingsController < ApplicationController
     private
     def booking_param
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
-    end
-
-    private 
-    def find_user
-        @user = session[:user_id]
     end
 
     private 
