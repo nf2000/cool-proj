@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
         if logged_in?
             redirect_to logout_path
           else
-            render  redirect_to login_path
+            redirect_to login_path
         end
         
     end
