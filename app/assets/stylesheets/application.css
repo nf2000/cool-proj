@@ -17,11 +17,9 @@
  */
 
  @import "bootstrap";
-
-
  
 .navbar{
-    background-color: #e3f2fd;
+    background-color: #AAABB8;
     color: black;
 }
 
@@ -30,5 +28,11 @@
     float: right;
     position: relative;
     right: 10%;
+}
+
+body{
+
+    background-color:#25274d;
+    color: whitesmoke;
 }
 

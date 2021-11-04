@@ -52,3 +52,20 @@
     position: relative;
     left:5px;
 }
+.card-body{
+    background-color: #464866;
+}
+.table{
+    background-color: #AAABB8;
+    width:97%;
+    text-align: center;
+    margin: 20px;
+}
+.user-btn{
+    position: relative;
+    left:320px;
+}
+.login-btn{
+    position: relative;
+    left:180px;
+}

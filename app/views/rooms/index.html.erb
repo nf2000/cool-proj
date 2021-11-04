@@ -1,4 +1,29 @@
-<%= image_tag "room.jpeg", class: "homepage-pic" %>  
+<div class="home-title">
+<%= image_tag "night.jpeg", class: "homepage-pic"%>  
+<p class="lead "> "Travel Good with Nims Inn"</p>
+</div>
+<%=form_with url: "/rooms", method: :get do |form|%> 
+<nav class="navbar navbar-expand-lg navbar ">
+  <div class="container-fluid">
+    <span class="navbar-brand" >
+      <div class="row g-2">
+        <div class="col-md-4 "
+          <%= form.label :check_in%> :
+          <%= form.text_field :check_in, class: "datepicker", rows: "6"%> <br> 
+        </div>
+        <div class="col-md-4"
+          <%= form.label :check_out%> :
+          <%= form.text_field :check_out, class: "datepicker", rows: "6"%> <br> 
+        </div>
+        <div class="col-md-4">
+            <%= form.submit "Search", class:" btn btn-dark btn-sm"%>
+        </div>
+      </div>
+    </span>
+  </div>
+</nav>
+<%end%> 
+
 <div class="row">
     <% @roomsAvailable.each do |p| %>     
         <div class="col-sm-4"><br>
@@ -14,11 +39,5 @@
         </div>
      <% end %>  
 </div>
-
-
-
- 
- 
- 
 
 
