@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index]
   
-  root "homes#index"
+  root "rooms#index"
 
   get "signup", to: "users#new"
   get "login", to: "sessions#new"
