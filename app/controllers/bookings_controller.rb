@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
     def index
         @booking = current_user.bookings
-        @sorted = @booking.order(:room_id)
+        @sorted = @booking.order(:id)
     end
 
     def new 
@@ -21,14 +21,16 @@ class BookingsController < ApplicationController
 
     def create 
         @booking = Booking.new(booking_param) 
-        @booking.user_id = current_user.id
-        @booking.room_id = @room.id
-        if @booking.save
-            flash.now[:success] = "booking created"
-            return redirect_to room_booking_path("#{@booking.room_id}","#{@booking.id}")
-        else
-            flash.now[:danger] =  @booking.errors.full_messages
-            render 'new'
+        if !require_user
+            @booking.user_id = current_user.id
+            @booking.room_id = @room.id
+            if @booking.save
+                flash.now[:success] = "booking created"
+                redirect_to room_booking_path(@booking.room_id,@booking.id)
+            else
+                flash.now[:danger] =  @booking.errors.full_messages
+                render 'new'
+            end  
         end
     end
 
@@ -36,9 +38,9 @@ class BookingsController < ApplicationController
         @booking = Booking.find(params[:id])
         if @booking.destroy
             flash[:success] =  "'#{@booking.id}' successfully deleted."  
-            redirect_to root_path 
+            redirect_to bookings_path 
         else
-            flash.now[:danger] = "could not delete blog post"
+            flash.now[:danger] = "could not delete booking"
             render 'show'
         end
     end
@@ -52,7 +54,7 @@ class BookingsController < ApplicationController
 
         if @booking.update(booking_param)
             flash[:success] =  "'#{@booking.id}' successfully updated."  
-            redirect_to root_path
+            redirect_to bookings_path
         else
             flash.now[:danger] = @booking.errors.full_messages
             render 'edit'
@@ -64,6 +66,7 @@ class BookingsController < ApplicationController
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
     end
 
+  
     private 
     def find_room
         if !params[:room_id].nil?
