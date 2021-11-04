@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
             @roomsAvailable = @rooms.filter{|room| !@roomsTakenIds.include?(room.id)}  
         end
     end
-    
+
     private
     def room_param
         params.require(:room).permit(:room_id)
