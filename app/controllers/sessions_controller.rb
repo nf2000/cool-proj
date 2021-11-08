@@ -9,9 +9,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             flash.now[:success] = "Logged in successfully."
             redirect_to root_path
-          
         else
-           
           flash[:danger] = "Invalid password or/and email."
           render 'new'
         end
@@ -31,4 +29,5 @@ class SessionsController < ApplicationController
         end
         
     end
+
 end

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         if @user.save
             session[:user_id] = @user.id
             flash[:success] = "User created #{@user.firstname}"
-            return redirect_to root_path
+            redirect_to root_path
 
         else
           flash.now[:danger] = @user.errors.full_messages #"Could not sign up"
