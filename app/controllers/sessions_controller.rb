@@ -20,4 +20,14 @@ class SessionsController < ApplicationController
         flash.now[:success] = "You have been logged out."
         redirect_to login_path
     end
+
+    def edit 
+        if logged_in?
+            redirect_to logout_path
+          else
+            redirect_to login_path
+        end
+        
+    end
+
 end

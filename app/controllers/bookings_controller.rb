@@ -1,4 +1,5 @@
-class BookingsController < ApplicationController 
+class BookingsController < ApplicationController
+
     before_action :find_room
 
     def index
@@ -30,7 +31,6 @@ class BookingsController < ApplicationController
             else
                 flash.now[:danger] =  @booking.errors.full_messages
                 render 'new'
-            end  
         end
     end
 
@@ -51,7 +51,6 @@ class BookingsController < ApplicationController
     
     def update
         @booking = Booking.find(params[:id])
-
         if @booking.update(booking_param)
             flash[:success] =  "'#{@booking.id}' successfully updated."  
             redirect_to bookings_path
@@ -66,7 +65,6 @@ class BookingsController < ApplicationController
         params.require(:booking).permit(:user_id,:room_id,:guests,:check_in,:check_out)
     end
 
-  
     private 
     def find_room
         if !params[:room_id].nil?
