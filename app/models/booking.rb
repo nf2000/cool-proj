@@ -15,18 +15,21 @@ class Booking < ApplicationRecord
         end
      end
 
-     def capacity
-      if guests > room.capacity
+    def capacity
+      return if guests.blank?
+      if guests > room.capacity 
         errors.add(:guests, "number must not exceed the capacity of the room")
+      elsif guests == 0 
+          errors.add(:guests, "Guests must be more than 0")
       end
     end
+     
 
     def cannot_be_past_date
       return if check_in.blank? || check_out.blank?
       if check_in < Date.current || check_out < Date.current
         errors.add( :check_in, :check_out , message: "date cannot be past date")
       end
-
     end
 
 end
