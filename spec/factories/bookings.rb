@@ -6,6 +6,5 @@ FactoryBot.define do
       check_out {"2024-01-02"}
       user_id {1}
       room_id {1}
-      capacity { association :capacity}
     end
   end

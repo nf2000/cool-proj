@@ -8,7 +8,7 @@ RSpec.describe Booking, type: :model do #class name and type
         end    
         
         it { should validate_presence_of(:check_in) }
-
+       
         
         it "throws an error when checkout not present" do 
             user = User.new

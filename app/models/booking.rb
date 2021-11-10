@@ -24,13 +24,14 @@ class Booking < ApplicationRecord
       end
     end
      
-
     def cannot_be_past_date
       return if check_in.blank? || check_out.blank?
       if check_in < Date.current || check_out < Date.current
         errors.add( :check_in, :check_out , message: "date cannot be past date")
       end
     end
+
+    
 
 end
                                                                                                                                                                                                             
