@@ -5,50 +5,24 @@ RSpec.describe Booking, type: :model do #class name and type
         it "make a booking when all the data is set" do 
             booking = FactoryBot.create(:booking)
             expect(booking.save).to eq(true)
-        end    
-        
-        it { should validate_presence_of(:check_in) }
-       
-        
-        it "throws an error when checkout not present" do 
-            user = User.new
-            user.firstname = "Nim"
-            user.surname = "ok"
-            user.email = "nim4@email.com"
-            user.password = "password"
-            user.password_confirmation = "password"
-            user.save
-            room = Room.new
-            room.capacity = 2
-            room.save
-            booking = Booking.new
-            booking.user_id = user.id
-            booking.room_id = room.id
-            booking.guests = 1
-            booking.check_out = nil
-            booking.check_in = "2023-11-11"
-            expect(booking.save).to eq(false)
+        end  
+
+        describe 'presence check' do
+            subject { build(:booking) }
+            it { should validate_presence_of(:check_in) }
+            it { should validate_presence_of(:check_out) }
+            it { should validate_presence_of(:guests) }
         end
-        it "throws an error when guests not present" do 
-            user = User.new
-            user.firstname = "Nim"
-            user.surname = "ok"
-            user.email = "nim4@email.com"
-            user.password = "password"
-            user.password_confirmation = "password"
-            user.save
-            room = Room.new
-            room.capacity = 2
-            room.save
-            booking = Booking.new
-            booking.user_id = user.id
-            booking.room_id = room.id
-            booking.guests = nil
-            booking.check_out = "2023-11-11"
-            booking.check_in = "2023-11-11"
-            puts booking.valid? #debuggging check if booking is valid
-            puts booking.errors.inspect
-            expect(booking.save).to eq(false)
+
+        describe '#out_date_after_in_date' do
+            it 'returns false if check-out is later than the check-in' do 
+                room = FactoryBot.create(:room)
+                booking = FactoryBot.create(:booking, check_in: "2024-02-06", check_out: "2024-02-05", room_id: room.id)
+                booking.out_date_after_in_date?.errors
+                expect(booking.out_date_after_in_date?).to match("check out must be after the check In date")
+            end
         end
+
+
     end
 end
