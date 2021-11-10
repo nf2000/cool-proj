@@ -14,7 +14,6 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             flash[:success] = "User created #{@user.firstname}"
             redirect_to root_path
-
         else
           flash.now[:danger] = @user.errors.full_messages #"Could not sign up"
           render 'new'
