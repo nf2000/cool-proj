@@ -8,6 +8,7 @@ class Booking < ApplicationRecord
     validate :cannot_be_past_date
     validates :check_in, :check_out, overlap: {:scope => "room_id", :message_title => "Availablity:", :message_content => "Room is not available"}
     
+    private
     def out_date_after_in_date
         return if check_in.blank? || check_out.blank?
         if check_out < check_in
@@ -31,7 +32,7 @@ class Booking < ApplicationRecord
       end
     end
 
-    
+
 
 end
                                                                                                                                                                                                             
